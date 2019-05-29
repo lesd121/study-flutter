@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CountRoute extends StatefulWidget {
-  CountRoute({Key key, this.title}) : super(key: key);
+  CountRoute({Key key, this.title, this.initValue: 0}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -13,6 +13,7 @@ class CountRoute extends StatefulWidget {
   // always marked "final".
 
   final String title;
+  final int initValue;
 
   @override
   _CountRouteState createState() => _CountRouteState();
@@ -20,6 +21,45 @@ class CountRoute extends StatefulWidget {
 
 class _CountRouteState extends State<CountRoute> {
   int _counter = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _counter = widget.initValue;
+    print("initState");
+    // print(this);
+    // print(widget);
+  }
+
+  @override
+  void didUpdateWidget(CountRoute oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print("didUpdateWidget");
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+    print("deactive");
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print("dispose");
+  }
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    print("reassemble");
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print("didChangeDependencies");
+  }
 
   void _incrementCounter() {
     setState(() {

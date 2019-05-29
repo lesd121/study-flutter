@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import './samples/newRoute.dart';
 import './samples/echoRoute.dart';
 import './samples/countRoute.dart';
+import './samples/assetRoute.dart';
+import './samples/tapboxARoute.dart';
 import './components/RandomWordsWidget/index.dart';
 
 void main() => runApp(MyApp());
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
         "new_page": (context) => NewRoute(),
         "new_page_with_params": (context) => EchoRoute(),
         "new_page_count": (context) => CountRoute(title: 'Count Page'),
+        "asset_page": (context) => AssetRoute(),
+        "tapboxA_page": (context) => TapboxARoute(),
       },
       home: MainPage(title: 'Flutter Demo Home Page'),
     );
@@ -71,6 +75,20 @@ class MainPage extends StatelessWidget {
               textColor: Colors.green,
               onPressed: () {
                 Navigator.of(context).pushNamed("new_page_with_params", arguments: "root page param");
+              },
+            ),
+            FlatButton(
+              child: Text("go asset page"),
+              textColor: Colors.black26,
+              onPressed: () {
+                Navigator.pushNamed(context, 'asset_page');
+              },
+            ),
+            FlatButton(
+              child: Text("go tapboxA page"),
+              textColor: Colors.black,
+              onPressed: () {
+                Navigator.pushNamed(context, 'tapboxA_page');
               },
             ),
             RandomWordsWidget(),
