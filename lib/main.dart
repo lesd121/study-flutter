@@ -4,6 +4,10 @@ import './samples/echoRoute.dart';
 import './samples/countRoute.dart';
 import './samples/assetRoute.dart';
 import './samples/tapboxARoute.dart';
+import './samples/tapboxBRoute.dart';
+import './samples/tapboxCRoute.dart';
+import './samples/cupertinoRoute.dart';
+import './samples/basicWidgetRoute.dart';
 import './components/RandomWordsWidget/index.dart';
 
 void main() => runApp(MyApp());
@@ -32,6 +36,10 @@ class MyApp extends StatelessWidget {
         "new_page_count": (context) => CountRoute(title: 'Count Page'),
         "asset_page": (context) => AssetRoute(),
         "tapboxA_page": (context) => TapboxARoute(),
+        "tapboxB_page": (context) => TapboxBRoute(),
+        "tapboxC_page": (context) => TapboxCRoute(),
+        "cupertino_test_page": (context) => CupertinoTestRoute(),
+        "basic_widget_test_page": (context) => BasicWidgetRoute(),
       },
       home: MainPage(title: 'Flutter Demo Home Page'),
     );
@@ -89,6 +97,34 @@ class MainPage extends StatelessWidget {
               textColor: Colors.black,
               onPressed: () {
                 Navigator.pushNamed(context, 'tapboxA_page');
+              },
+            ),
+            FlatButton(
+              child: Text("go tapboxB page"),
+              textColor: Colors.black,
+              onPressed: () {
+                Navigator.pushNamed(context, 'tapboxB_page');
+              },
+            ),
+            FlatButton(
+              child: Text("go tapboxC page"),
+              textColor: Colors.black,
+              onPressed: () {
+                Navigator.pushNamed(context, 'tapboxC_page');
+              },
+            ),
+            FlatButton(
+              child: Text("go cupertino test page"),
+              textColor: Colors.black87,
+              onPressed: () {
+                Navigator.pushNamed(context, 'cupertino_test_page');
+              },
+            ),
+            FlatButton(
+              child: Text("go basic widget test page"),
+              textColor: Colors.black87,
+              onPressed: () {
+                Navigator.pushNamed(context, 'basic_widget_test_page');
               },
             ),
             RandomWordsWidget(),
