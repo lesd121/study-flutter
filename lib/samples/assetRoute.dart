@@ -21,7 +21,8 @@ class AssetRoute extends StatelessWidget {
               width: double.infinity,
               repeat: ImageRepeat.noRepeat,
               fit: BoxFit.fitWidth, 
-            )
+            ),
+            Icon(IconData(0xe73d, fontFamily: 'myIcon',  matchTextDirection: true ), color: Colors.blue),
           ],
         ),
       )

@@ -8,6 +8,7 @@ import './samples/tapboxBRoute.dart';
 import './samples/tapboxCRoute.dart';
 import './samples/cupertinoRoute.dart';
 import './samples/basicWidgetRoute.dart';
+import './samples/materialWidgetRoute.dart';
 import './components/RandomWordsWidget/index.dart';
 
 void main() => runApp(MyApp());
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         "tapboxC_page": (context) => TapboxCRoute(),
         "cupertino_test_page": (context) => CupertinoTestRoute(),
         "basic_widget_test_page": (context) => BasicWidgetRoute(),
+        "masterial_widget_test_page": (context) => MaterialWidgetRoute(),
       },
       home: MainPage(title: 'Flutter Demo Home Page'),
     );
@@ -125,6 +127,13 @@ class MainPage extends StatelessWidget {
               textColor: Colors.black87,
               onPressed: () {
                 Navigator.pushNamed(context, 'basic_widget_test_page');
+              },
+            ),
+            FlatButton(
+              child: Text("go material widget test page"),
+              textColor: Colors.black87,
+              onPressed: () {
+                Navigator.pushNamed(context, 'masterial_widget_test_page');
               },
             ),
             RandomWordsWidget(),
