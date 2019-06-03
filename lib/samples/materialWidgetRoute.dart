@@ -7,20 +7,31 @@ class MaterialWidgetRoute extends StatelessWidget {
       appBar: AppBar(
         title: Text("Material Widget"),
       ),
-      body: Container(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              SwitchAndCheckBox(),
-              Container(
-                padding: EdgeInsets.only(top: 10, bottom: 10),
-              )
-            ],
-          ),
-        ),
-        padding: EdgeInsets.only(top: 10, bottom: 10, left: 10, right:10),
-        
-      ),
+      body: CustomScrollView(
+        shrinkWrap: true,
+        slivers: <Widget>[
+          SliverPadding(
+            padding: EdgeInsets.all(10.0),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate(<Widget>[
+                Container(
+                  child: Center(
+                    child: Column(
+                      children: <Widget>[
+                        SwitchAndCheckBox(),
+                        Container(
+                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                        ),
+                        InputWidgetDemo(),
+                      ],
+                    ),
+                  ),
+                ),
+              ]),
+            )
+          )
+        ],
+      )
     );
   }
 }
@@ -64,5 +75,73 @@ class _SwitchAndCheckboxState extends State<SwitchAndCheckBox> {
 
 // checkbox and switch ---- end
 
+// form and input ---- start
+class InputWidgetDemo extends StatelessWidget {
+  final TextEditingController _unameController = new TextEditingController();
+  FocusNode focusNode1 = new FocusNode();
+  FocusNode focusNode2 = new FocusNode();
+  FocusScopeNode focusScopeNode;
+
+  InputWidgetDemo() {
+    _unameController.addListener(() {
+      print("_unameController: ${_unameController.text}");
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Container(
+          // padding: EdgeInsets.only(bottom: 10),
+          child: Column(
+            children: <Widget>[
+              TextField(
+                autofocus: true,
+                decoration: InputDecoration(
+                  labelText: "用户名",
+                  hintText: "用户名或邮箱",
+                ),
+                controller: _unameController,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: "密码",
+                  hintText: "您的登录密码",
+                ),
+                obscureText: true,
+                onChanged: (val) {
+                  print("onChange: $val");
+                },
+              ),
+              FlatButton(
+                textColor: Colors.white,
+                color: Colors.lightBlue,
+                highlightColor: Colors.blue,
+                child: Text("测试"),
+                onPressed: () {
+                  print(_unameController.text);
+                },
+              )
+            ],
+          ),
+        ),
+        Container(
+          child: Column(
+            children: <Widget>[
+              TextField(
+                autofocus: true,
+                focusNode: focusNode1, // 关联focusNode1
+                decoration: InputDecoration(
+                  labelText: "input1",
+                ),
+              )
+            ],
+          )
+        ),
+      ],
+    );
+  }
+}
 
 
