@@ -9,6 +9,7 @@ import './samples/tapboxCRoute.dart';
 import './samples/cupertinoRoute.dart';
 import './samples/basicWidgetRoute.dart';
 import './samples/materialWidgetRoute.dart';
+import './samples/layoutWidgetRoute.dart';
 import './components/RandomWordsWidget/index.dart';
 
 void main() => runApp(MyApp());
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        primaryColor: Colors.lightBlue,
       ),
       routes: {
         "new_page": (context) => NewRoute(),
@@ -42,6 +44,7 @@ class MyApp extends StatelessWidget {
         "cupertino_test_page": (context) => CupertinoTestRoute(),
         "basic_widget_test_page": (context) => BasicWidgetRoute(),
         "masterial_widget_test_page": (context) => MaterialWidgetRoute(),
+        "layout_widget_test_page": (context) => LayoutWidgetRoute(),
       },
       home: MainPage(title: 'Flutter Demo Home Page'),
     );
@@ -134,6 +137,13 @@ class MainPage extends StatelessWidget {
               textColor: Colors.black87,
               onPressed: () {
                 Navigator.pushNamed(context, 'masterial_widget_test_page');
+              },
+            ),
+            FlatButton(
+              child: Text("go layout widget test page"),
+              textColor: Colors.black87,
+              onPressed: () {
+                Navigator.pushNamed(context, 'layout_widget_test_page');
               },
             ),
             RandomWordsWidget(),
